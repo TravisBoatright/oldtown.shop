@@ -1,0 +1,29 @@
+<script type="text/javascript">
+
+// const momoSushi = document.getElementById('momo')
+// const casaRosada = document.getElementById('casa')
+        
+        let currentTimeMomo = new Date().getHours();
+        function changeColor1() {
+            if (7 <= currentTimeMomo && currentTimeMomo < 20) {
+                document.getElementById('momo').style.backgroundColor = '#a3e49b';
+						} else {
+                document.getElementById('momo').style.backgroundColor = '#ff7a7a';
+           }
+        };
+        
+        let currentTimeCasa = new Date().getHours();
+        function changeColor2() {
+            if (16 <= currentTimeCasa && currentTimeCasa < 21) {
+                document.getElementById('casa').style.backgroundColor = '#a3e49b';
+						} else {
+                document.getElementById('casa').style.backgroundColor = '#ff7a7a';
+           }
+        };
+        
+        document.getElementById('momo').onload = changeColor1(),
+        document.getElementById('casa').onload = changeColor2(),
+
+setInterval(changeColor, 1000 * 60);
+
+</script>
