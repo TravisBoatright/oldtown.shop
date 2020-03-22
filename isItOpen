@@ -8,7 +8,7 @@ const restaurantHours = { // days of the week are integers, restaurant hours are
     "mishas": {0 : [0500,1900], 1 : [0500,1900], 2 : [0500,1900], 3 : [0500,1900], 4 : [0500,1900], 5 : [0500,1900], 6 : [0500,1900]}
 }
 
-const currentHour = new Date().getHours();
+const currentHour = new Date().getHours()+ new Date().getMinutes;
 const currentDay = new Date().getDay(); // the days of the week are zero indexed. 0 = sunday, 1 = monday,... 6 = saturday
 
 function changeColor() {
