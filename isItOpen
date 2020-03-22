@@ -3,7 +3,7 @@
 const openn = '#a3e49b';
 const closed = '#ff7a7a';
 const restaurantHours = { // days of the week are integers, restaurant hours are in array form, feel free to add in another element if you want to make the yellow like Tim suggested, you'd have to add more logic but it wouldn't be hard
-    "Momo": {0 : [5,5], 1 : [9,5], 2 : [9,5], 3 : [9,5], 4 : [9,5], 5 : [9,5], 6 : [5,5]},
+    "Momo": {0 : [10,20], 1 : [10,20], 2 : [10,20], 3 : [10,20], 4 : [10,20], 5 : [10,20], 6 : [10,20]},
     "Casa": {0 : [12,7], 1 : [7,7], 2 : [7,7], 3 : [7,7], 4 : [7,7], 5 : [7,7], 6 : [12,7]},
     "Other": {0 : [10,4], 1 : [10,4], 2 : [10,4], 3 : [10,4], 4 : [10,4], 5 : [10,4], 6 : [10,4]}
 }
