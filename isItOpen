@@ -1,29 +1,33 @@
 <script type="text/javascript">
 
-// const momoSushi = document.getElementById('momo')
-// const casaRosada = document.getElementById('casa')
-        
-        let currentTimeMomo = new Date().getHours();
-        function changeColor1() {
-            if (7 <= currentTimeMomo && currentTimeMomo < 20) {
-                document.getElementById('momo').style.backgroundColor = '#a3e49b';
-						} else {
-                document.getElementById('momo').style.backgroundColor = '#ff7a7a';
-           }
-        };
-        
-        let currentTimeCasa = new Date().getHours();
-        function changeColor2() {
-            if (16 <= currentTimeCasa && currentTimeCasa < 21) {
-                document.getElementById('casa').style.backgroundColor = '#a3e49b';
-						} else {
-                document.getElementById('casa').style.backgroundColor = '#ff7a7a';
-           }
-        };
-        
-        document.getElementById('momo').onload = changeColor1(),
-        document.getElementById('casa').onload = changeColor2(),
+const openn = '#a3e49b';
+const closed = '#ff7a7a';
+const restaurantHours = { // days of the week are integers, restaurant hours are in array form, feel free to add in another element if you want to make the yellow like Tim suggested, you'd have to add more logic but it wouldn't be hard
+    "Momo": {0 : [5,5], 1 : [9,5], 2 : [9,5], 3 : [9,5], 4 : [9,5], 5 : [9,5], 6 : [5,5]},
+    "Casa": {0 : [12,7], 1 : [7,7], 2 : [7,7], 3 : [7,7], 4 : [7,7], 5 : [7,7], 6 : [12,7]},
+    "Other": {0 : [10,4], 1 : [10,4], 2 : [10,4], 3 : [10,4], 4 : [10,4], 5 : [10,4], 6 : [10,4]}
+}
 
+const currentHour = new Date().getHours();
+const currentDay = new Date().getDay(); // the days of the week are zero indexed. 0 = sunday, 1 = monday,... 6 = saturday
+
+function changeColor() {
+    for (let i = 0; i < Object.keys(restaurantHours).length; i++) { // this iterates over the keys of restaurantHours
+        let restaurantID = Object.keys(restaurantHours)[i]; // if you name the id of the div for each restaurant the name of the key in the dicitonary, you can use the variable defined here to chage the color of that div
+        let openHour = restaurantHours[restaurantID][currentDay][0]; // this is calling the restaurantHours dictionary first by the key of the name of the restaurant and second by the key of the day of the week
+        let closedHour =  restaurantHours[restaurantID][currentDay][1]; //there are two of these because the array will always have 2 elements, the first is the open time and the second is the closed time
+
+        if (openHour <= currentHour && currentHour < closedHour) {
+            // console.log(`document.getElementById(${restaurantID}).style.backgroundColor = openn`);
+            document.getElementById(restaurantID).style.backgroundColor = openn;
+        } else {
+            // console.log(`document.getElementById(${restaurantID}).style.backgroundColor = closed`);
+            document.getElementById(restaurantID).style.backgroundColor = closed;
+        };
+    };
+};
+
+changeColor(); // this will call the function initally idk how soon setinterval starts working
 setInterval(changeColor, 1000 * 60);
 
 </script>
