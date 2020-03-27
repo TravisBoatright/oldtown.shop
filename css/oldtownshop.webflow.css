@@ -168,8 +168,8 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url('../images/alexandria-street.JPG');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/alexandria-street.JPG');
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(37, 42, 87, 0.8)), to(rgba(37, 42, 87, 0.8))), url('../images/alexandria-street.JPG');
+  background-image: linear-gradient(180deg, rgba(37, 42, 87, 0.8), rgba(37, 42, 87, 0.8)), url('../images/alexandria-street.JPG');
   background-position: 0px 0px, 50% 50%;
   color: #fff;
 }
@@ -370,13 +370,27 @@
 }
 
 .footer {
+  position: fixed;
+  left: 0%;
+  top: auto;
+  right: 0%;
+  bottom: 0%;
+  display: block;
   margin-top: 100px;
   padding-top: 60px;
   padding-bottom: 40px;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   background-color: #252a57;
   text-align: center;
 }
@@ -660,9 +674,10 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 29, 56, 0.8)), to(rgba(26, 29, 56, 0.8))), url('../images/alexandria-street.JPG');
-  background-image: linear-gradient(180deg, rgba(26, 29, 56, 0.8), rgba(26, 29, 56, 0.8)), url('../images/alexandria-street.JPG');
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(37, 42, 87, 0.8)), to(rgba(37, 42, 87, 0.8))), url('../images/alexandria-street.JPG');
+  background-image: linear-gradient(180deg, rgba(37, 42, 87, 0.8), rgba(37, 42, 87, 0.8)), url('../images/alexandria-street.JPG');
   background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
   color: #fff;
 }
 
@@ -1543,16 +1558,6 @@
 
 @media screen and (max-width: 767px) {
   #w-node-5846df7ad5cb-21d22e7d {
-    -ms-grid-row: span 1;
-    grid-row-start: span 1;
-    -ms-grid-row-span: 1;
-    grid-row-end: span 1;
-    -ms-grid-column: span 1;
-    grid-column-start: span 1;
-    -ms-grid-column-span: 1;
-    grid-column-end: span 1;
-  }
-  #w-node-5846df7ad5cd-21d22e7d {
     -ms-grid-row: span 1;
     grid-row-start: span 1;
     -ms-grid-row-span: 1;
