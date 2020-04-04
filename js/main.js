@@ -95,11 +95,13 @@ function generateWindows(businessesAndHours, displayName) {
 //     return  divs.join('')
 // }
 
-    const divs = [];
+    const foodDivs = [];
+    const groceryDivs = [];
+    const retailDivs = [];
 
         for (const shop of shops) {
-
-        divs.push(`<div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
+            if (shop.type === 'food') {
+                foodDivs.push(`<div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
                 <h4 class="heading">${shop.name}</h4>
                 <p class="paragraph">Hours:<br>
                 S: ${humanHours['['+businessesAndHours[shop.id][0][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][0][1].toString()+']']}<br>
@@ -109,10 +111,41 @@ function generateWindows(businessesAndHours, displayName) {
                 T: ${humanHours['['+businessesAndHours[shop.id][4][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][4][1].toString()+']']}<br>
                 F: ${humanHours['['+businessesAndHours[shop.id][5][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][5][1].toString()+']']}<br>
                 S: ${humanHours['['+businessesAndHours[shop.id][6][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][6][1].toString()+']']}<br>
-                <br>${shop.dislaimer}</p>
+                <br>${shop.disclaimer}</p>
             </div>`)
-    }
-    return  divs.join('')
+            } else if (shop.type === 'grocery') {
+                groceryDivs.push(`<div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
+                <h4 class="heading">${shop.name}</h4>
+                <p class="paragraph">Hours:<br>
+                S: ${humanHours['['+businessesAndHours[shop.id][0][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][0][1].toString()+']']}<br>
+                M: ${humanHours['['+businessesAndHours[shop.id][1][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][1][1].toString()+']']}<br>
+                T: ${humanHours['['+businessesAndHours[shop.id][2][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][2][1].toString()+']']}<br>
+                W: ${humanHours['['+businessesAndHours[shop.id][3][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][3][1].toString()+']']}<br>
+                T: ${humanHours['['+businessesAndHours[shop.id][4][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][4][1].toString()+']']}<br>
+                F: ${humanHours['['+businessesAndHours[shop.id][5][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][5][1].toString()+']']}<br>
+                S: ${humanHours['['+businessesAndHours[shop.id][6][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][6][1].toString()+']']}<br>
+                <br>${shop.disclaimer}</p>
+            </div>`)
+            } else {
+                retailDivs.push(`<div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
+                <h4 class="heading">${shop.name}</h4>
+                <p class="paragraph">Hours:<br>
+                S: ${humanHours['['+businessesAndHours[shop.id][0][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][0][1].toString()+']']}<br>
+                M: ${humanHours['['+businessesAndHours[shop.id][1][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][1][1].toString()+']']}<br>
+                T: ${humanHours['['+businessesAndHours[shop.id][2][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][2][1].toString()+']']}<br>
+                W: ${humanHours['['+businessesAndHours[shop.id][3][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][3][1].toString()+']']}<br>
+                T: ${humanHours['['+businessesAndHours[shop.id][4][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][4][1].toString()+']']}<br>
+                F: ${humanHours['['+businessesAndHours[shop.id][5][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][5][1].toString()+']']}<br>
+                S: ${humanHours['['+businessesAndHours[shop.id][6][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][6][1].toString()+']']}<br>
+                <br>${shop.disclaimer}</p>
+            </div>`)
+            }
+        }
+    return  {
+        food: foodDivs.join(''),
+        grocery: groceryDivs.join(''),
+        retail: retailDivs.join('')
+    };
 }
 
 function changeColor(businessesAndHours) {
@@ -138,6 +171,13 @@ function changeColor(businessesAndHours) {
     };
 };
 // console.log(generateWindows(alxBizHours, displayName))
-document.getElementsByClassName('w-layout-grid grid-2')[0].innerHTML = generateWindows(alxBizHours, displayName)
+
+
+const storesHtml = generateWindows(alxBizHours, displayName);
+
+document.getElementById('foodtab').innerHTML = storesHtml.food
+//console.log(document.getElementById('foodtab'))
+
+
 changeColor(alxBizHours);
 setInterval(changeColor, 60*1000, alxBizHours);
