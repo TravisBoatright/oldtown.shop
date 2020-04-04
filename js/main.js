@@ -14,7 +14,7 @@ const openn = '#a3e49b',
           'traderjoes' :   {0 : [[09,00],[19,00]], 1 : [[09,00],[19,00]], 2 : [[09,00],[19,00]], 3 : [[09,00],[19,00]], 4 : [[09,00],[19,00]], 5 : [[09,00],[19,00]], 6 : [[09,00],[19,00]]}
       },
       displayName = {
-        'momo' : `Momo Sushi`,
+        'momo' : [`Momo Sushi`, 'tab1']
         'dunkin' : `Dunkin Donuts`,
         'killer' : `Killer ESP`,
         'toast' : `Toastiqu`,
@@ -67,7 +67,6 @@ function generateWindows(businessesAndHours, displayName) {
         '[23,0]' : '11pm', '[23,30]' : '11:30pm', 
     };
         
-    const divs = [];
     for (let i = 0; i < Object.keys(businessesAndHours).length; i++) {
         divs.push(`<div id="${bizID[i]}" class="store w-node-c664a0cf5efb-def45619">
                 <h4 class="heading">${displayName[displayID[i]]}</h4>
@@ -107,6 +106,7 @@ function changeColor(businessesAndHours) {
         };
     };
 };
-console.log(generateWindows(alxBizHours, displayName))
+// console.log(generateWindows(alxBizHours, displayName))
+document.getElementsByClassName('w-layout-grid grid-2')[0].innerHTML = generateWindows(alxBizHours, displayName)
 changeColor(alxBizHours);
 setInterval(changeColor, 60*1000, alxBizHours);
