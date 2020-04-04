@@ -5,10 +5,28 @@ const shops = [
         type: 'food',
         disclaimer: 'Pickup food at window',
         mapsLink: '',
+    },
+    {
+        id: 'traderjoes',
+        name:'Trader Joe\'s',
+        hours: {0 : [[09,00],[19,00]], 1 : [[09,00],[19,00]], 2 : [[09,00],[19,00]], 3 : [[09,00],[19,00]], 4 : [[09,00],[19,00]], 5 : [[09,00],[19,00]], 6 : [[09,00],[19,00]]},
+        type: 'grocery',
+        disclaimer: 'Monitoring people and lines',
+        mapsLink: '',
+    },
+    {
+        id: 'pennypost',
+        name:'Penny Post',
+        hours: {0 : [[12,00],[17,00]], 1 : [[12,00],[17,00]], 2 : [[12,00],[17,00]], 3 : [[12,00],[17,00]], 4 : [[12,00],[17,00]], 5 : [[12,00],[17,00]], 6 : [[12,00],[17,00]]},
+        type: 'retail',
+        disclaimer: 'Limited number of people allowed',
+        mapsLink: '',
     }
 ];
+
 const openn = '#a3e49b';
 const closed = '#ff7a7a';
+
 const alxBizHours = {
           'momo' :         {0 : [[15,00],[21,30]], 1 : [[11,30],[22,00]], 2 : [[11,30],[22,00]], 3 : [[11,30],[22,00]], 4 : [[11,30],[22,00]], 5 : [[11,30],[22,00]], 6 : [[11,30],[22,00]]},
           'dunkin' :       {0 : [[06,00],[17,00]], 1 : [[06,00],[17,00]], 2 : [[06,00],[17,00]], 3 : [[06,00],[17,00]], 4 : [[06,00],[17,00]], 5 : [[06,00],[17,00]], 6 : [[06,00],[17,00]]},
@@ -21,7 +39,8 @@ const alxBizHours = {
           'wholefoods' :   {0 : [[07,00],[21,00]], 1 : [[07,00],[21,00]], 2 : [[07,00],[21,00]], 3 : [[07,00],[21,00]], 4 : [[07,00],[21,00]], 5 : [[07,00],[21,00]], 6 : [[07,00],[21,00]]},
           'harristeeter' : {0 : [[07,00],[20,00]], 1 : [[07,00],[20,00]], 2 : [[07,00],[20,00]], 3 : [[07,00],[20,00]], 4 : [[07,00],[20,00]], 5 : [[07,00],[20,00]], 6 : [[07,00],[20,00]]},
           'traderjoes' :   {0 : [[09,00],[19,00]], 1 : [[09,00],[19,00]], 2 : [[09,00],[19,00]], 3 : [[09,00],[19,00]], 4 : [[09,00],[19,00]], 5 : [[09,00],[19,00]], 6 : [[09,00],[19,00]]},
-          'bugsys' :   {0 : [[17,00],[23,30]], 1 : [[17,00],[23,30]], 2 : [[17,00],[23,30]], 3 : [[17,00],[23,30]], 4 : [[17,00],[23,30]], 5 : [[17,00],[23,30]], 6 : [[17,00],[23,30]]}
+          'bugsys' :   {0 : [[17,00],[23,30]], 1 : [[17,00],[23,30]], 2 : [[17,00],[23,30]], 3 : [[17,00],[23,30]], 4 : [[17,00],[23,30]], 5 : [[17,00],[23,30]], 6 : [[17,00],[23,30]]},
+          'pennypost' : {0 : [[12,00],[17,00]], 1 : [[12,00],[17,00]], 2 : [[12,00],[17,00]], 3 : [[12,00],[17,00]], 4 : [[12,00],[17,00]], 5 : [[12,00],[17,00]], 6 : [[12,00],[17,00]]}
         };
 
 const displayName = {
@@ -36,7 +55,8 @@ const displayName = {
         'wholefoods' : `Whole Foods Market`,
         'harristeeter' : `Harris Teeter`,
         'traderjoes' : `Trader Joe's`,
-        'bugsys' : `Bugsy's Sports Bar`
+        'bugsys' : `Bugsy's Sports Bar`,
+        'pennypost' : `Penny Post`
       };
     
 const currentTime = new Date();
@@ -143,8 +163,9 @@ function changeColor(businessesAndHours) {
 
 const storesHtml = generateWindows(alxBizHours, displayName);
 
-document.getElementById('foodtab').innerHTML = storesHtml.food;
-// console.log(document.getElementById('foodtab'))
+// document.getElementById('foodtab').innerHTML = storesHtml.food;
+
+Object.keys(storesHtml).forEach(storeType => document.getElementById(`${storeType}tab`).innerHTML = storesHtml[storeType]);
 
 
 changeColor(alxBizHours);
