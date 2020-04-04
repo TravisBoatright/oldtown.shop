@@ -14,7 +14,7 @@ const openn = '#a3e49b',
           'traderjoes' :   {0 : [[09,00],[19,00]], 1 : [[09,00],[19,00]], 2 : [[09,00],[19,00]], 3 : [[09,00],[19,00]], 4 : [[09,00],[19,00]], 5 : [[09,00],[19,00]], 6 : [[09,00],[19,00]]}
       },
       displayName = {
-        'momo' : [`Momo Sushi`, 'tab1']
+        'momo' : [`Momo Sushi`, 'tab1'],
         'dunkin' : `Dunkin Donuts`,
         'killer' : `Killer ESP`,
         'toast' : `Toastiqu`,
