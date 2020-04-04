@@ -95,7 +95,7 @@ function generateWindows(businessesAndHours, displayName) {
 //     return  divs.join('')
 // }
 
-const divs = [];
+    const divs = [];
 
         for (const shop of shops) {
 
