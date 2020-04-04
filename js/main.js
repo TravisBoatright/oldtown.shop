@@ -1,3 +1,12 @@
+const shops = [
+    {   id: 'momo',
+        name:'Momo Sushi',
+        hours: {0 : [[15,00],[21,30]], 1 : [[11,30],[22,00]], 2 : [[11,30],[22,00]], 3 : [[11,30],[22,00]], 4 : [[11,30],[22,00]], 5 : [[11,30],[22,00]], 6 : [[11,30],[22,00]]},
+        type: 'food',
+        disclaimer: 'Pickup food at window',
+        mapsLink: '',
+    }
+]
 const openn = '#a3e49b',
       closed = '#ff7a7a',
       alxBizHours = {
@@ -15,10 +24,10 @@ const openn = '#a3e49b',
           'bugsys' :   {0 : [[17,00],[23,30]], 1 : [[17,00],[23,30]], 2 : [[17,00],[23,30]], 3 : [[17,00],[23,30]], 4 : [[17,00],[23,30]], 5 : [[17,00],[23,30]], 6 : [[17,00],[23,30]]}
         },
       displayName = {
-        'momo' : [`Momo Sushi`],
+        'momo' : `Momo Sushi`,
         'dunkin' : `Dunkin Donuts`,
         'killer' : `Killer ESP`,
-        'toast' : `Toastiqu`,
+        'toast' : `Toastique`,
         'casa' : `Casa Rosada`,
         'mishas' : `Misha's Coffee`,
         'cvs1' : `CVS - King Street`,
@@ -68,19 +77,39 @@ function generateWindows(businessesAndHours, displayName) {
         '[22,0]' : '10pm', '[22,30]' : '10:30pm',
         '[23,0]' : '11pm', '[23,30]' : '11:30pm', 
     };
-const divs = []       
-    for (let i = 0; i < Object.keys(businessesAndHours).length; i++) {
-        divs.push(`<div id="${bizID[i]}" class="store w-node-c664a0cf5efb-def45619">
-                <h4 class="heading">${displayName[displayID[i]]}</h4>
+// const divs = []       
+//     for (let i = 0; i < Object.keys(businessesAndHours).length; i++) {
+//         divs.push(`<div id="${bizID[i]}" class="store w-node-c664a0cf5efb-def45619">
+//                 <h4 class="heading">${displayName[displayID[i]]}</h4>
+//                 <p class="paragraph">Hours:<br>
+//                 S: ${humanHours['['+businessesAndHours[bizID[i]][0][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][0][1].toString()+']']}<br>
+//                 M: ${humanHours['['+businessesAndHours[bizID[i]][1][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][1][1].toString()+']']}<br>
+//                 T: ${humanHours['['+businessesAndHours[bizID[i]][2][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][2][1].toString()+']']}<br>
+//                 W: ${humanHours['['+businessesAndHours[bizID[i]][3][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][3][1].toString()+']']}<br>
+//                 T: ${humanHours['['+businessesAndHours[bizID[i]][4][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][4][1].toString()+']']}<br>
+//                 F: ${humanHours['['+businessesAndHours[bizID[i]][5][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][5][1].toString()+']']}<br>
+//                 S: ${humanHours['['+businessesAndHours[bizID[i]][6][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][6][1].toString()+']']}<br>
+//                 <br>*Only 10 People allowed inside</p>
+//             </div>`)
+//     }
+//     return  divs.join('')
+// }
+
+const divs = [];
+
+        for (const shop of shops) {
+
+        divs.push(`<div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
+                <h4 class="heading">${shop.name}</h4>
                 <p class="paragraph">Hours:<br>
-                S: ${humanHours['['+businessesAndHours[bizID[i]][0][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][0][1].toString()+']']}<br>
-                M: ${humanHours['['+businessesAndHours[bizID[i]][1][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][1][1].toString()+']']}<br>
-                T: ${humanHours['['+businessesAndHours[bizID[i]][2][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][2][1].toString()+']']}<br>
-                W: ${humanHours['['+businessesAndHours[bizID[i]][3][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][3][1].toString()+']']}<br>
-                T: ${humanHours['['+businessesAndHours[bizID[i]][4][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][4][1].toString()+']']}<br>
-                F: ${humanHours['['+businessesAndHours[bizID[i]][5][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][5][1].toString()+']']}<br>
-                S: ${humanHours['['+businessesAndHours[bizID[i]][6][0].toString()+']']} - ${humanHours['['+businessesAndHours[bizID[i]][6][1].toString()+']']}<br>
-                <br>*Only 10 People allowed inside</p>
+                S: ${humanHours['['+businessesAndHours[shop.id][0][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][0][1].toString()+']']}<br>
+                M: ${humanHours['['+businessesAndHours[shop.id][1][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][1][1].toString()+']']}<br>
+                T: ${humanHours['['+businessesAndHours[shop.id][2][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][2][1].toString()+']']}<br>
+                W: ${humanHours['['+businessesAndHours[shop.id][3][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][3][1].toString()+']']}<br>
+                T: ${humanHours['['+businessesAndHours[shop.id][4][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][4][1].toString()+']']}<br>
+                F: ${humanHours['['+businessesAndHours[shop.id][5][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][5][1].toString()+']']}<br>
+                S: ${humanHours['['+businessesAndHours[shop.id][6][0].toString()+']']} - ${humanHours['['+businessesAndHours[shop.id][6][1].toString()+']']}<br>
+                <br>${shop.dislaimer}</p>
             </div>`)
     }
     return  divs.join('')
