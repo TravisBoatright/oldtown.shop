@@ -570,7 +570,7 @@
 
 .store {
   display: block;
-  width: auto;
+  width: 100%;
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
@@ -1656,4 +1656,3 @@
     grid-row-end: span 1;
   }
 }
-
