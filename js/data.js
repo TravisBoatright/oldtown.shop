@@ -1,5 +1,5 @@
 const infoForOldTownShops = [
-    // "A"
+    // "A" 
     {
         id: 'lucia',
         name:'a la Lucia',
