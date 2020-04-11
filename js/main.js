@@ -7,7 +7,7 @@ function formatDate(hours) {
 
 function formatTime(time) {
     let hour = time[0]
-    let minute = time[0]
+    let minute = time[1]
     let suffix = 'am';
     if (hour > 12) {
         suffix = 'pm';
