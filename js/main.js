@@ -13,17 +13,19 @@ function formatTime(time) {
         suffix = 'pm';
         hour -= 12;
     }
-
+    if (hour === 0 && minute === 0) {
+        return 'Closed'
+    }
     if (minute === 0) {
         return hour.toString() + suffix;
     }
-        return hour.toString() + ':' + minute.toString() + suffix;
+    return hour.toString() + ':' + minute.toString() + suffix;
 }
 
 function generateWindows(shops) {
 
     function divCreator(divArray, shop) {  
-        divArray.push(`<div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
+        divArray.push(`<a href=${shop.mapsLink}><div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
             <h4 class="heading">${shop.name}</h4>
                 <p class="paragraph">Hours:<br>     
                     S: ${formatTime(shop.hours[0][0])} - ${formatTime(shop.hours[0][1])}<br>
@@ -34,7 +36,7 @@ function generateWindows(shops) {
                     F: ${formatTime(shop.hours[5][0])} - ${formatTime(shop.hours[5][1])}<br>
                     S: ${formatTime(shop.hours[6][0])} - ${formatTime(shop.hours[6][1])}<br>
                 <br>${shop.disclaimer}</p>
-            </div>`);
+            </div></a>`);
     }
 
     const foodDivs = [];
