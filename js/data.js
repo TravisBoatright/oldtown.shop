@@ -77,7 +77,7 @@ const infoForOldTownShops = [
     {
         id: 'casa',
         name:'Casa Rosada',
-        hours: {0 : [[null,null],[null,null]], 1 : [[null,null],[null,null]], 2 : [[null,null],[null,null]], 3 : [[null,null],[null,null]], 4 : [[null,null],[null,null]], 5 : [[null,null],[null,null]], 6 : [[null,null],[null,null]]},
+        hours: {0 : [[00,00],[00,00]], 1 : [[00,00],[00,00]], 2 : [[00,00],[00,00]], 3 : [[00,00],[00,00]], 4 : [[00,00],[00,00]], 5 : [[00,00],[00,00]], 6 : [[00,00],[00,00]]},
         type: 'food',
         disclaimer: 'Closed for COVID-19',
         mapsLink: 'https://goo.gl/maps/iXVzzPFWwGQxFDek7',
