@@ -325,7 +325,7 @@ const infoForOldTownShops = [
         type: 'grocery',
         disclaimer: 'Monitoring people and lines',
         mapsLink: 'https://goo.gl/maps/efyTkhwRQiDA7mcX7',
-    },
+    }
     // "X"
     // "Y"
     // "Z"
