@@ -25,7 +25,7 @@ function formatTime(time) {
 function generateWindows(shops) {
 
     function divCreator(divArray, shop) {  
-        divArray.push(`<a href=${shop.mapsLink}><div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
+        divArray.push(`<a href=${shop.mapsLink} target="_blank"><div id="${shop.id}" class="store w-node-c664a0cf5efb-def45619">
             <h4 class="heading">${shop.name}</h4>
                 <p class="paragraph">Hours:<br>     
                     S: ${formatTime(shop.hours[0][0])} - ${formatTime(shop.hours[0][1])}<br>
