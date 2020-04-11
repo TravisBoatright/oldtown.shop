@@ -101,5 +101,5 @@ const infoForOldTownShops = [
         type: 'grocery',
         disclaimer: 'Monitoring people and lines',
         mapsLink: '',
-    },
+    }
 ];
