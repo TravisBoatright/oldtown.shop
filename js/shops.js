@@ -328,7 +328,7 @@ const infoForOldTownShops = [
         name:'Lavender Moon Cupcakery',
         hours: {0 : [[11,00],[20,00]], 1 : [[11,30],[20,00]], 2 : [[11,30],[20,00]], 3 : [[11,30],[20,00]], 4 : [[11,30],[20,00]], 5 : [[11,30],[20,00]], 6 : [[17,30],[20,00]]},
         type: 'food',
-        disclaimer: 'Takeout, or delivery in Old Town',
+        disclaimer: 'Takeout or delivery in Old Town',
         mapsLink: 'https://goo.gl/maps/jMKW8ELKcnX65qt36',
     },
     // "M"
